@@ -40,3 +40,4 @@ quasar build
 ### Customize the configuration
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
 # portfolio-2025
+# portfolio-2025
