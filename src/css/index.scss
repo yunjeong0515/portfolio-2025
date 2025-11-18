@@ -1,0 +1,204 @@
+.mainpage-container {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  padding: 60px 0 20px 0;
+  &::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    background-color: $black900;
+    content: "";
+  }
+  .pixel-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -50;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .pixel {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    bottom: 100%;
+    animation: fall linear forwards;
+  }
+  @keyframes fall {
+    0% {
+      bottom: 100%;
+      opacity: 1;
+    }
+    100% {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+  .container-wrap {
+    padding: 35px 0 150px 0;
+    height: 100%;
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      .title-wrap {
+        display: flex;
+        flex-direction: column;
+        .sub-text {
+          span {
+            font-size: 2rem;
+            color: #fff;
+          }
+        }
+        .focus-keyword {
+          display: flex;
+          justify-content: center;
+          min-height: 20rem;
+          overflow: hidden;
+          span {
+            position: relative;
+            font-size: 19rem;
+            line-height: 1;
+            color: #fff;
+            white-space: nowrap;
+            .char {
+              display: inline-block;
+              position: relative;
+            }
+          }
+        }
+        .static-text {
+          font-size: 3rem;
+          color: #fff;
+          text-align: right;
+        }
+      }
+      .main-wrap {
+        .folder-list {
+          width: 50%;
+          ul {
+            display: flex;
+            gap: 100px;
+            li {
+              a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                padding: 2.5rem;
+                .icon-wrapper {
+                  position: relative;
+                  width: 184px;
+                  aspect-ratio: 184 / 154;
+                  overflow: visible;
+                  margin: 0 auto;
+                  perspective: 800px;
+                  transform-style: preserve-3d;
+                  .folder-icon {
+                    position: relative;
+                    z-index: 10;
+                    svg {
+                      transform-style: preserve-3d;
+                      overflow: visible;
+                    }
+                    .folder-front {
+                      position: relative;
+                      z-index: 10;
+                      transform-origin: 50% 100%;
+                    }
+                    path {
+                      transition: 0.5s;
+                    }
+                  }
+                  .drop-icons {
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    z-index: 5;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+                    height: 100%;
+                    pointer-events: none; /* 링크 클릭을 막지 않도록 */
+                    .drop-icon {
+                      position: absolute;
+                      font-size: 20px; /* 아이콘 크기 */
+                      width: 30px;
+                      height: 30px;
+                      text-align: center;
+                      line-height: 30px;
+                      bottom: 0;
+                    }
+                    .drop-icon[data-index="0"] {
+                      left: 20%;
+                    }
+                    .drop-icon[data-index="1"] {
+                      left: 45%;
+                    }
+                    .drop-icon[data-index="2"] {
+                      left: 70%;
+                    }
+                  }
+                }
+                span {
+                  font-size: 25px;
+                  color: #fff;
+                }
+                &:hover {
+                  .icon-wrapper {
+                    .folder-icon {
+                      .folder-front {
+                        transform: rotateX(30deg) rotateY(0deg) rotateZ(0deg);
+                      }
+                      .folder-center {
+                        transform: translateY(-30px);
+                      }
+                    }
+                    .drop-icons {
+                      transform: translate(-50%, -100%);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .dock-wrap {
+        position: fixed;
+        left: 50%;
+        bottom: 20px;
+        transform: translate(-50%, 0);
+        ul {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          border-radius: 20px;
+          border: 0.906px solid #eee;
+          background: rgba(255, 255, 255, 0.3);
+          backdrop-filter: blur(2);
+          padding: 8px 10px;
+          li {
+            width: 70px;
+            aspect-ratio: 1 / 1;
+            .icon {
+              width: 100%;
+              height: 100%;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
