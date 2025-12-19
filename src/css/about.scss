@@ -1,0 +1,296 @@
+.aboutpage-container {
+  .visual-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    padding: 150px 0 0 0;
+    .gradient-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.8)
+      );
+    }
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      .contents-wrap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        .title-wrap {
+          display: flex;
+          flex-direction: column;
+          .text-block {
+            height: 2.5rem;
+            overflow: hidden;
+            white-space: nowrap;
+            display: inline-block;
+            position: relative;
+            span {
+              font-size: 2.5rem;
+              line-height: 1;
+              color: $black900;
+            }
+            .fill-text {
+              /* transition 중 텍스트가 줄바꿈되는 것을 방지 */
+              white-space: nowrap;
+              display: inline-block;
+              /* position: absolute를 사용하여 겹치게 함 */
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+            .ko-fill-enter-active,
+            .ko-fill-leave-active {
+              /* width만 transition 적용 (0.5초) */
+              transition: width 0.5s ease;
+            }
+
+            /* 글자가 나갈 때 (오른쪽 -> 왼쪽으로 사라짐) */
+            .ko-fill-leave-to {
+              width: 0 !important;
+              /* 나가는 글자의 시작 너비는 content의 너비여야 하므로 enter-from, enter-to에만 width를 명시 */
+            }
+
+            /* 새 글자가 들어올 때 (왼쪽 -> 오른쪽으로 채워짐) */
+            .ko-fill-enter-from {
+              width: 0 !important;
+            }
+
+            /* 새 글자가 들어올 때 (최종 상태: 100% 채워짐) */
+            .ko-fill-enter-to {
+              /* 너비가 content의 너비만큼 확장됨 */
+              width: 100% !important;
+            }
+          }
+          .keyworld-wrap {
+            display: flex;
+            align-items: center;
+            font-size: 15rem;
+          }
+          .stac-text {
+            font-size: 8rem;
+            margin-left: 65%;
+            color: $black700;
+          }
+        }
+        .intro-text {
+          position: absolute;
+          left: 0;
+          bottom: 100px;
+          display: flex;
+          flex-direction: column;
+          span {
+            font-size: 2rem;
+            color: $black700;
+            &:nth-child(2) {
+              margin-left: 17rem;
+            }
+          }
+        }
+        .profile-img {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          width: 17vw;
+          aspect-ratio: 3 / 4;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+          }
+        }
+        .scroll-icon {
+          position: absolute;
+          left: 50%;
+          bottom: 20px;
+          transform: translate(-50%, 0);
+        }
+      }
+    }
+  }
+  .rolling-section {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    padding: 100px 0;
+    width: 100%;
+    overflow: hidden;
+    .rolling-wrapper {
+      display: flex;
+      white-space: nowrap;
+      .rolling-content {
+        display: flex;
+        align-items: center;
+        will-change: transform;
+        .rolling-item {
+          display: flex;
+          align-items: center;
+          gap: 50px;
+          padding-right: 50px;
+          span {
+            font-size: 15rem;
+            line-height: 1;
+            color: $black500;
+          }
+          .circle-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 14rem;
+            aspect-ratio: 1 / 1;
+            border-radius: 100%;
+            background-color: $blue500;
+            .dev-icon {
+              width: 60%;
+              aspect-ratio: 105 / 58;
+              svg {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+              }
+            }
+          }
+          .rolling-icon {
+            width: 14rem;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+    }
+  }
+  .intro-section {
+    width: 100%;
+    height: 100vh;
+    .pin-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+      .title-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+        .split-text {
+          text-align: center;
+          .char {
+            display: inline-block;
+            color: $blue50;
+            position: relative;
+
+            // 위에 덮어씌울 글자 (진한 색)
+            &::after {
+              content: attr(data-char);
+              position: absolute;
+              left: 0;
+              top: 0;
+              color: $blue500; // 채워질 색상
+              width: var(--fill-width, 0%);
+              overflow: hidden;
+              transition: none;
+            }
+          }
+        }
+
+        h2 {
+          font-size: 5.5rem;
+          letter-spacing: 0.3rem;
+          word-break: keep-all;
+        }
+        p {
+          font-size: 3rem;
+          word-break: keep-all;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .aboutpage-container {
+    .visual-section {
+      .wrapper {
+        .contents-wrap {
+          .title-wrap {
+            .keyworld-wrap {
+              font-size: 13rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* ProjectPage.vue <style lang="scss"> 또는 SCSS 파일 */
+
+#gsap-container {
+  // 3D 컨테이너는 뷰포트 중앙에 오도록 설정
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.box {
+  // GSAP가 3D 위치를 제어하므로, 기본 스타일만 정의
+  position: absolute;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  overflow: visible;
+  transform-style: preserve-3d;
+  // 텍스트 스타일 (색상은 GSAP로 설정된 배경색에 따라 반전시켜야 함)
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  color: #fff; // 텍스트를 흰색으로 설정 (밝은 배경색 위에)
+  filter: brightness(0.8);
+  .card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &:hover {
+    filter: brightness(1.1);
+    // 호버 시 카드가 앞으로 툭 튀어나오는 효과
+    z-index: 100 !important;
+  }
+  .project-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  .project-date {
+    font-size: 1.2rem;
+  }
+}

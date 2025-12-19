@@ -34,37 +34,26 @@ $white: #ffffff;
 /* IBM Plex Mono */
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
-@font-face {
-  font-family: "Neodgm";
-  font-weight: 400;
-  font-style: normal;
-  src: local("neodgm"), url("../assets/fonts/neodgm.woff2") format("woff2"),
-    url("../assets/fonts/neodgm.woff") format("woff");
-  font-kerning: normal;
-  font-feature-settings: "kern" on;
-  font-display: swap;
-}
-@font-face {
-  font-family: "NeoDunggeunmoPro";
-  font-weight: 400;
-  font-style: normal;
-  src: local("neodgm_pro"),
-    url("../assets/fonts/NeoDunggeunmoPro-Regular.woff2") format("woff2"),
-    url("../assets/fonts/NeoDunggeunmoPro-Regular.woff") format("woff");
-  font-display: swap;
-}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-.font_neodgm {
-  font-family: "Neodgm", monospace !important;
-}
-.font_neodgm_pro {
-  font-family: "NeoDunggeunmoPro", monospace !important;
-}
 .font_ibm {
   font-family: "IBM Plex Mono", monospace !important;
 }
+.font_mon {
+  font-family: "Montserrat", sans-serif;
+}
+
 .font_italic {
   font-style: italic;
+}
+
+.font_200 {
+  // font-family: "Pretendard", sans-serif;
+  font-weight: 200;
+}
+.font_300 {
+  // font-family: "Pretendard", sans-serif;
+  font-weight: 300;
 }
 .font_400 {
   // font-family: "Pretendard", sans-serif;
