@@ -32,7 +32,7 @@
         <div class="nav">
           <ul>
             <li>
-              <router-link to="/about" :class="{ on: $route.meta.AboutPage }">
+              <router-link to="/" :class="{ on: $route.meta.AboutPage }">
                 <div class="dot-icon"></div>
                 <div class="text-wrapper">
                   <span class="font_ibm font_400 original-text">ABOUT</span>
@@ -50,10 +50,7 @@
               </router-link>
             </li> -->
             <li>
-              <router-link
-                to="/project"
-                :class="{ on: $route.meta.ProjectPage }"
-              >
+              <router-link to="/" :class="{ on: $route.meta.ProjectPage }">
                 <div class="dot-icon"></div>
                 <div class="text-wrapper">
                   <span class="font_ibm font_400 original-text">PROJECT</span>

@@ -11,13 +11,15 @@
               </span>
             </div>
           </div>
-          <span class="font_ibm sub-text text-r">&lt;Publisher/&gt;</span>
+          <span class="font_ibm sub-text text-r"
+            >&lt;User-Centric Publisher/&gt;</span
+          >
         </div>
         <div class="main-wrap">
           <div class="folder-list">
             <ul>
               <li>
-                <router-link to="/about">
+                <router-link to="/">
                   <div class="folder-wrapper" ref="folderItem">
                     <div class="folder-icon-wrap">
                       <div class="folder-front folder-icon">
@@ -52,7 +54,7 @@
                 </router-link>
               </li>
               <li>
-                <router-link to="/project">
+                <router-link to="/">
                   <div class="folder-wrapper" ref="folderItem">
                     <div class="folder-icon-wrap">
                       <div class="folder-front folder-icon">
@@ -147,14 +149,6 @@ export default defineComponent({
     const shouldTerminalBeOpen = () => window.innerWidth > 768;
 
     return {
-      wordPairs: [
-        // ... 기존 wordPairs
-        { sub: "강력한 성능의 퍼블리셔", main: "Performant" },
-        { sub: "유연한 반응형 퍼블리셔", main: "Responsive" },
-        { sub: "구조적인 시맨틱 퍼블리셔", main: "Semantic" },
-        { sub: "생동감 넘치는 퍼블리셔", main: "Interactive" },
-        { sub: "모두를 위한 퍼블리셔", main: "Accessible" },
-      ],
       isTerminalOpen: shouldTerminalBeOpen(),
       isTerminalMinimized: false,
 
